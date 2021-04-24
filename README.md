@@ -1,6 +1,6 @@
 # Tegola helm chart
 
-Helm 3 chart for [Tegola]("https://github.com/go-spatial/tegola").
+Helm 3 chart for [Tegola](https://github.com/go-spatial/tegola).
 
 ## Note
 Still under development, so not ready for production yet.
