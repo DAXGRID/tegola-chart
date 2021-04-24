@@ -6,7 +6,7 @@ Helm 3 chart for [Tegola](https://github.com/go-spatial/tegola).
 Parse in your Tengola config file as `config`.
 
 ```sh
-helm upgrade --install openftth-tileserver tegola -n openftth \
+helm upgrade --install my-release-name tegola \
      --set-file config=./config.toml
 ```
 
