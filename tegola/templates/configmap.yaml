@@ -4,4 +4,4 @@ metadata:
   name: {{ .Release.Name }}-{{ .Chart.Name }}-config
 data:
   config.toml: |-
-{{ .Files.Get "config.toml" | indent 4}}
+{{ .Values.config | indent 4 }}

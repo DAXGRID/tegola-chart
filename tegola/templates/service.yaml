@@ -9,7 +9,7 @@ spec:
   ports:
     - name: http
       protocol: TCP
-      port: {{ .Values.service.port }}
+      port: {{ .Values.service.externalPort }}
       targetPort: 8080
   selector:
     app: {{ .Release.Name }}-{{ .Chart.Name }}

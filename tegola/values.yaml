@@ -3,10 +3,10 @@ loglevel: "Information"
 
 service:
   type: LoadBalancer
-  port: 80
+  externalPort: 80
 
 image:
   repository: gospatial/tegola
   tag: v0.13.0
 
-config: "/config.toml"
+config: ""
