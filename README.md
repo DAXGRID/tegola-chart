@@ -2,9 +2,6 @@
 
 Helm 3 chart for [Tegola](https://github.com/go-spatial/tegola).
 
-## Note
-Still under development, so not ready for production yet.
-
 ## Install
 Parse in your Tengola config file as `config`.
 
