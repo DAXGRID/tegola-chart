@@ -1,0 +1,6 @@
+replicas: 1
+loglevel: "Information"
+
+image:
+  repository: gospatial/tegola
+  tag: v0.13.0
