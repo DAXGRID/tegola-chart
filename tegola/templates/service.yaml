@@ -5,11 +5,11 @@ metadata:
   labels:
     app: {{ .Release.Name }}-{{ .Chart.Name }}
 spec:
-  type: LoadBalancer
+  type: {{ .Values.service.type }}
   ports:
     - name: http
       protocol: TCP
-      port: 80
+      port: {{ .Values.service.port }}
       targetPort: 8080
   selector:
     app: {{ .Release.Name }}-{{ .Chart.Name }}

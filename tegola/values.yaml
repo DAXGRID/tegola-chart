@@ -1,6 +1,12 @@
 replicas: 1
 loglevel: "Information"
 
+service:
+  type: LoadBalancer
+  port: 80
+
 image:
   repository: gospatial/tegola
   tag: v0.13.0
+
+config: "/config.toml"
