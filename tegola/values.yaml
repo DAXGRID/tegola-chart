@@ -1,5 +1,4 @@
 replicas: 1
-loglevel: "Information"
 
 service:
   type: LoadBalancer
