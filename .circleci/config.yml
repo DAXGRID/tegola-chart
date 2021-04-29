@@ -1,0 +1,43 @@
+version: 2.1
+
+executors:
+  helm-kubectl:
+    docker:
+    - image: dtzar/helm-kubectl
+
+jobs:
+  package-and-upload:
+    executor: helm-kubectl
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "84:38:8e:27:4d:03:27:c9:1e:db:56:db:2c:b9:d1:c1"
+      - run:
+          name: key-scan
+          command: ssh-keyscan github.com >> ~/.ssh/known_hosts
+      - run:
+          name: git clone charts
+          command: git clone git@github.com:DAXGRID/charts.git
+      - run:
+          name: git clone tegola-chart
+          command: git clone git@github.com:DAXGRID/tegola-chart.git
+      - run:
+          name: package and push
+          command: |
+             cd ./charts
+             helm package ../tegola-chart/tegola
+             helm repo index ./ --url https://daxgrid.github.io/charts/
+             git config user.email "admin@dax.dk"
+             git config user.name "dax-bot"
+             git add .
+             git commit -m "adds/updates tegola-chart - $(date --utc)"
+             git push
+workflows:
+  package-and-upload-chart:
+    jobs:
+      - package-and-upload:
+          filters:
+            branches:
+              only:
+                - master
