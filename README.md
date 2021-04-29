@@ -13,7 +13,6 @@ helm repo update
 Parse in your Tengola config file as `config`.
 ```sh
 helm upgrade --install my-release-name dax/tegola \
-
      --set-file config=./config.toml
 ```
 
