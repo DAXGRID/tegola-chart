@@ -2,11 +2,18 @@
 
 Helm 3 chart for [Tegola](https://github.com/go-spatial/tegola).
 
-## Install
-Parse in your Tengola config file as `config`.
+## Install/Upgrade
 
+First add the repo
 ```sh
-helm upgrade --install my-release-name tegola \
+helm repo add dax https://daxgrid.github.io/charts/
+helm repo update
+```
+
+Parse in your Tengola config file as `config`.
+```sh
+helm upgrade --install my-release-name dax/tegola \
+
      --set-file config=./config.toml
 ```
 
