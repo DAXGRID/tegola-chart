@@ -1,0 +1,15 @@
+{{ if (eq .Values.storage.enabled true) }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-{{ .Chart.Name }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  {{- if .Values.storageClassName }}
+  storageClassName: {{ .Values.storage.className }}
+  {{- end }}
+  resources:
+    requests:
+      storage: {{ .Values.storage.size }}
+{{ end }}
