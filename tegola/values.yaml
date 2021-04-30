@@ -8,4 +8,10 @@ image:
   repository: gospatial/tegola
   tag: v0.13.0
 
+storage:
+  enabled: false
+  size: 1Gi
+  className: ""
+  path: "/data"
+
 config: ""

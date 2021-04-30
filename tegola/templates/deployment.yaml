@@ -23,6 +23,11 @@ spec:
            items:
            - key: config.toml
              path: config.toml
+       {{ if (eq .Values.storage.enabled true) }}
+       - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
+         persistentVolumeClaim:
+           claimName: {{ .Release.Name }}-{{ .Chart.Name }}
+       {{ end }}
       containers:
       - name: {{ .Release.Name }}-{{ .Chart.Name }}
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
@@ -32,6 +37,10 @@ spec:
          - name: {{ .Release.Name }}-{{ .Chart.Name }}-config-mnt
            mountPath: /opt/tegola_config/config.toml
            subPath: config.toml
+         {{ if (eq .Values.storage.enabled true) }}
+         - name: {{ .Release.Name }}-{{ .Chart.Name }}-data
+           mountPath: {{ .Values.storage.path }}
+         {{ end }}
         args:
           - "serve"
           - "--config=/opt/tegola_config/config.toml"
