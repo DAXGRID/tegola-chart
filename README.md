@@ -2,7 +2,7 @@
 
 Helm 3 chart for [Tegola](https://github.com/go-spatial/tegola).
 
-#Note
+## Note
 Moved to [here](https://github.com/DAXGRID/dax-charts/tree/master/dax/tegola)
 
 ## Install/Upgrade
